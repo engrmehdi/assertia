@@ -1,0 +1,109 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$primary: (
+    50 : #f0f0f0,
+    100 : #d9d9d9,
+    200 : #c0c0c0,
+    300 : #a6a6a6,
+    400 : #939393,
+    500 : #808080,
+    600 : #787878,
+    700 : #6d6d6d,
+    800 : #636363,
+    900 : #505050,
+    A100 : #f8c0c0,
+    A200 : #f39292,
+    A400 : #ff5353,
+    A700 : #ff3a3a,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #ffffff,
+    )
+);
+
+$accent: (
+    50 : #eaeaea,
+    100 : #cacaca,
+    200 : #a6a6a6,
+    300 : #828282,
+    400 : #686868,
+    500 : #4d4d4d,
+    600 : #464646,
+    700 : #3d3d3d,
+    800 : #343434,
+    900 : #000000,
+    A100 : #f18282,
+    A200 : #ec5454,
+    A400 : #ff0e0e,
+    A700 : #f30000,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+$sp-app-primary: mat-palette($primary);
+$sp-app-accent:  mat-palette($accent);
+$sp-app-warn:    mat-palette($mat-red);
+$sp-app-theme: mat-light-theme($sp-app-primary,$sp-app-accent,$sp-app-warn);
+@include angular-material-theme($sp-app-theme);
+
+$sp-colors: (
+    fx-FFFFFF: #FFFFFF,
+    fx-black: #070606,
+    fx-E20B5D: #E20B5D,
+    fx-4D4D4D : #4D4D4D,
+    fx-808080 : #808080,
+    fx-dadada : #dadada,
+    fx-success : #28a745,
+    fx-danger : #dc3545,
+    fx-info : #17a2b8,
+    fx-warning : #ffc107,
+    fx-transparent: transparent,
+    fx-f2f2f2: #f2f2f2,
+    fx-cccccc : #cccccc, 
+    fx-22B573 : #22B573,
+    fx-F44336 : #F44336,
+    fx-F1BAB6 : #F1BAB6,
+);
+
+@function fx-mat-color($palette, $hue: default, $opacity: null) {
+    @if type-of($hue) == number and $hue >= 0 and $hue <= 1 {
+      @return fx-mat-color($palette, default, $hue);
+    }
+    $color: map-get($palette, $hue);
+  
+    @if (type-of($color) != color) {
+      @return $color;
+    }
+    @return rgba($color, if($opacity == null, opacity($color), $opacity));
+  }
+
+
+
+    

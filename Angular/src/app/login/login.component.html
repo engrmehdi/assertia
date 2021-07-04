@@ -1,0 +1,42 @@
+<div fxFlexFill fxLayout="row" fxLayoutAlign="space-evenly center" class='fx-background-img'>
+   <mat-horizontal-stepper [linear]="isLinear" #stepper>
+      <mat-step> 
+        <mat-card class='fx-login-card' fxLayout="column" fxFlex.xs="0px" fxFlex.sm="0px" fxFlex="480px">
+            <mat-card-header>
+                <mat-card-title class="fx-card-title fx-mat-accent">{{'login.page.title' | translate}}</mat-card-title>
+            </mat-card-header>
+            <br>
+            <mat-card-content>
+                <form fxLayout="column" fxFlex="100%" fxLayoutGap="20px" [formGroup]="loginForm"
+                    (ngSubmit)="onSubmit(loginForm.value)" id="ngForm" #ngForm="ngForm">
+                    <mat-form-field [floatLabel]="'always'">
+                        <mat-label fxFlex='14px'>{{'login.label.username' | translate}}</mat-label>
+                        <input matInput placeholder="Type your username" id='username' formControlName="username">
+                        <mat-icon matPrefix fxFlex='1.5em' color="primary">person_outline</mat-icon>
+                        <ng-container *ngIf="username && loginForm.get('username').hasError('required')">
+                            <label matSuffix fxFlex='10em'
+                                class='fx-hide'>{{'login.validation.username' | translate}}</label>
+                            <mat-icon class="fx-validation-font" fxLayoutAlign="end" fxFlex='1em' color='warn'>error
+                            </mat-icon>
+                        </ng-container>
+                    </mat-form-field>
+                    <mat-form-field [floatLabel]="'always'">
+                        <mat-label fxFlex='14px'>{{'login.label.password' | translate}}</mat-label>
+                        <input type="password" matInput placeholder="Type your password" id='password'
+                            formControlName="password">
+                        <mat-icon matPrefix fxFlex='1.5em' color="primary">lock_outline</mat-icon>
+                        <ng-container *ngIf="password && loginForm.get('password').hasError('required')">
+                            <label matSuffix fxFlex='10em'
+                                class='fx-hide'>{{'login.valdation.password' | translate}}</label>
+                            <mat-icon class="fx-validation-font" fxLayoutAlign="end" fxFlex='1em' color='warn'>error
+                            </mat-icon>
+                        </ng-container>
+                    </mat-form-field>  
+                    <button mat-raised-button color="accent"
+                        class='fx-login-button'>{{'login.button.login' | translate}}</button>
+                </form> 
+            </mat-card-content>
+        </mat-card>
+      </mat-step> 
+    </mat-horizontal-stepper> 
+</div>

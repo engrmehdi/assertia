@@ -1,0 +1,12 @@
+<button mat-mini-fab fxLayoutAlign="center center" [matMenuTriggerFor]="userMenu" 
+        #userMenuTrigger="matMenuTrigger" class="usermenu"> 
+    <span class="fx-title">{{userInfo?.userName[0]}}</span> 
+</button> 
+<mat-menu #userMenu="matMenu" [overlapTrigger]="false" class="user-menu">
+    <div class="menuContents"> 
+        <div fxLayout="row" fxLayoutAlign="space-between start" style="height: 60px;padding: 8px"> 
+            <span class="fx-cursor-pointer" onmouseover="style='text-decoration:underline','color:#f10000'"
+            onmouseout="style='color:#f10000'" style="color:#f10000" (click)="logOut()">{{'userMenu.signOut' | translate}}</span>  
+        </div> <div class="divider"></div> 
+    </div> 
+</mat-menu>

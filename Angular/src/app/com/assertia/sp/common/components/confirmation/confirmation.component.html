@@ -1,0 +1,15 @@
+<div fxLayout="column" fxLayoutAlign="space-between stretch" class="fx-modal" #matDialog>
+    <header fxLayout="row"  fxLayoutAlign="space-between start">
+      <h2>{{modalData.heading | translate}}</h2>
+      <mat-icon class="fx-cursor-pointer" (click)="noFn()" color="warn">close</mat-icon>
+    </header>
+    <div fxLayout="row" fxFlex="50px"> 
+       {{modalData.key | translate}}
+    </div> 
+    <div fxLayout="row" fxFlex="36px" fxLayoutGap="10px">
+        <button mat-button form="ngForm" class="fx-save-button"
+            (click)="yesFn()">{{'yes' | translate}}</button>
+        <button mat-button form="ngForm" class="fx-cancel-button"
+            (click)="noFn()">{{'no' | translate}}</button>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<section class="fx-section"> 
+    <h1><i class="fa fa-angle-right"></i>List of Users</h1>
+    <div >
+        <div fxLayoutAlign="end center" >
+            <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchText" />
+            <button mat-raised-button class="action-button btn-primary" (click)="openModal()">
+                <mat-icon>add</mat-icon>
+            </button>
+        </div>
+        <table class="table table-striped">
+            <thead class="thead-inverse">
+                <tr>
+                    <th></th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>phone</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users | filter:searchText">
+                    <td>
+                      <mat-icon>account_circle</mat-icon>
+                    </td>
+                    <td>{{user.userName}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.phone}}</td>
+                    <td>
+                        <div class="container">
+                            <button mat-raised-button class="action-button btn-primary" (click)="openModal(user)">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button mat-raised-button class="action-button btn-danger" (click)="deleteUser(user)">
+                                <mat-icon>delete_outline</mat-icon>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

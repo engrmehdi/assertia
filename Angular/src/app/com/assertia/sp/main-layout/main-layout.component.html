@@ -1,0 +1,72 @@
+<app-header (closeSideNav)="toggleSidenav($event)"></app-header>
+<app-sploader></app-sploader>
+<div fxLayout="row" style="border-bottom: 2px solid #F2F2F2; height: 40px;">
+    <!-- this area can be used for urgent notices or breadcrubs or any thing related to users from admin side-->
+</div>
+<mat-sidenav-container style="height: calc(100% - 100px)">
+    <mat-sidenav #sideNav [opened]="sidenavIsOpened" [mode]="'side'" fixedTopGap="56">
+        <mat-nav-list>
+            <span *ngFor="let item of menu">
+                <span *ngIf="item.children && item.children.length > 0">
+                    <mat-accordion>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    <div fxLayout="row" fxLayoutAlign="space-between center">
+                                        <mat-icon>{{item.iconName}}</mat-icon>
+                                        {{item.displayName}}
+                                    </div>
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <span *ngFor="let child of item.children"> 
+                                <span *ngIf="child.children && child.children.length > 0">
+                                    <mat-accordion>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>
+                                                    <div fxLayout="row" fxLayoutAlign="space-between center">
+                                                        <mat-icon>{{child.iconName}}</mat-icon>
+                                                        {{child.displayName}}
+                                                    </div>
+                                                </mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <span *ngFor="let child2 of child.children">
+                                                <mat-list-item (click)="openRoute(child2.route)">
+                                                    <div fxLayout="row" fxLayoutAlign="space-between center">
+                                                        <mat-icon>{{child2.iconName}}</mat-icon>
+                                                        {{child2.displayName}}
+                                                    </div>
+                                                </mat-list-item>
+                                            </span>
+                                        </mat-expansion-panel>
+                                    </mat-accordion>
+                                </span>
+                                <span *ngIf="!child.children || child.children.length === 0">
+                                    <mat-list-item (click)="openRoute(child.route)">
+                                        <div fxLayout="row" fxLayoutAlign="space-between center">
+                                            <mat-icon>{{child.iconName}}</mat-icon>
+                                            {{child.displayName}}
+                                        </div>
+                                    </mat-list-item>
+                                </span>
+                            </span>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </span>
+                <span *ngIf="!item.children || item.children.length === 0">
+                    <mat-list-item (click)="openRoute(item.route)">
+                        <div fxLayout="row" fxLayoutAlign="space-between center">
+                            <mat-icon>{{item.iconName}}</mat-icon>
+                            {{item.displayName}}
+                        </div>
+                    </mat-list-item>
+                </span>
+            </span>
+        </mat-nav-list>
+    </mat-sidenav>  
+    <mat-sidenav-content fxFlex class="fx-bg-color">
+        <div fxFlex>
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container> 

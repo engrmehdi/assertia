@@ -1,0 +1,11 @@
+{
+    "login.page.title": "Assertia Login",
+    "login.label.username": "Username",
+    "login.validation.username": "Username is required",
+    "login.label.password": "Password",
+    "login.valdation.password": "Password is required",
+    "login.label.forgotpassword": "Forgot password?",
+    "login.button.login": "LOGIN",
+    "userMenu.signOut": "Sign out",
+    "deleteOneConfirm": "Are you sure you want to delete this record?"
+}

@@ -1,0 +1,59 @@
+@use '../theme/sp-theme'
+
+.fx-login-card
+    @include sp-theme.fx-padding(50px,50px,50px,50px)
+    @include sp-theme.fx-border-radius(10px)
+    @include sp-theme.fx-height(564px)
+
+.fx-card-title
+    @include sp-theme.fx-font(3em !important)
+    @include sp-theme.fx-line-height(normal)
+    @include sp-theme.fx-text-align(center)
+    @include sp-theme.fx-font-weight(1000)
+
+.fx-card-title-forgot
+    @include sp-theme.fx-font(1.5em !important)
+    @include sp-theme.fx-line-height(normal)
+    @include sp-theme.fx-text-align(center)
+    @include sp-theme.fx-font-weight(1000)
+
+.mat-form-field
+    @include sp-theme.fx-font(17px)
+    @include sp-theme.fx-font-weight(500)
+    @include sp-theme.fx-line-height(2.5)
+
+.fx-background-img
+    @include sp-theme.fx-bg-image(url("../../assets/icons/login-bg-dark.jpg"))
+    @include sp-theme.fx-bg-size(100% 100%)
+    @include sp-theme.fx-padding(10px,10px,10px,10px)
+
+mat-icon.mat-icon
+    @include sp-theme.fx-vertical-align(text-bottom)
+
+.fx-hide
+    @include sp-theme.fx-display(none)
+    @include sp-theme.fx-margin(8px,0px,0px,0px)
+
+.mat-form-field:hover .fx-hide
+    @include sp-theme.fx-display()
+    @include sp-theme.fx-color(null, fx-danger)
+    @include sp-theme.fx-font(0.7em)
+
+.fx-validation-font
+    @include sp-theme.fx-font(16px)
+    @include sp-theme.fx-height(15px)
+    @include sp-theme.fx-margin(15px, 0px, 0px, 0px)
+
+.fx-login-button
+    @include sp-theme.fx-height(50px)
+    @include sp-theme.fx-border-radius(50px)
+.fx-forgot-password-height 
+    font-weight: 400 !important
+    line-height: 1.125  !important
+::ng-deep .mat-horizontal-stepper-header-container
+   display: none !important 
+::ng-deep .mat-horizontal-content-container 
+    overflow: hidden !important
+    padding: 0px !important
+.mat-stepper-horizontal
+    @include sp-theme.fx-border-radius(10px)

@@ -1,0 +1,44 @@
+@use '../../../../../theme/sp-theme'
+
+.fx-app-toolbar 
+    @include sp-theme.fx-color(fx-f2f2f2,null)
+    padding-right: 2px
+    position: sticky
+    position: -webkit-sticky 
+    top: 0   
+    height: 60px
+.mat-form-field-flex  
+    height: 28px !important
+.fx-selection
+    @include sp-theme.fx-color(fx-808080, fx-FFFFFF)
+    height: 28px
+    padding-left: 10px
+    margin-right: 28px
+    font-size: 14px
+.fx-usermenu
+    height: 40px
+    width: 40px
+.fx-notification
+    @include sp-theme.fx-color(null, fx-E20B5D)
+.fx-selection-xd
+    @include sp-theme.fx-color(fx-808080, fx-FFFFFF) 
+    height: 25px
+    padding-left: 10px
+    margin-right: 16px
+    font-size: 14px
+    margin-top: 8px
+    width: 213px
+
+
+::ng-deep .mat-select-panel 
+  position: absolute
+  top: 32px 
+  left: 6px 
+  background:#666666 !important 
+
+::ng-deep .mat-select-panel .mat-option
+  color: #FFFFFF !important
+
+::ng-deep .mat-option.mat-selected
+  background: black !important  
+

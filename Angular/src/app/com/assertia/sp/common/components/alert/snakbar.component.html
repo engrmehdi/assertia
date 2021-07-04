@@ -1,0 +1,4 @@
+<ng-container *ngFor="let alert of alerts"> 
+    <mat-label class="{{cssClass(alert)}}">
+            {{alert.useKey ? (alert.message | translate):alert.message}}</mat-label>
+</ng-container>

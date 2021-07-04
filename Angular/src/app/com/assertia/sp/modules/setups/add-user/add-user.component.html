@@ -1,0 +1,37 @@
+<div fxLayout="column" fxLayoutAlign="space-between stretch" class="fx-modal" #matDialogRealEntity>
+    <header fxLayout="row" fxLayoutAlign="space-between start">
+        <h2 class="primary">
+            Add / Edit User
+        </h2>
+        <mat-icon class="fx-cursor-pointer" (click)="closeModal()" color="warn">close</mat-icon>
+    </header>
+    <div fxLayout="row" fxFlex [ngStyle]="{'height':contentHeight}">
+        <form fxFlex [formGroup]="addUserForm" (change)="formChanged()">
+            <div fxLayout="column">
+                <div fxLayout="row" fxFlex fxLayoutGap="5px">
+                    <mat-form-field fxFlex appearance="outline">
+                        <mat-label>Username</mat-label>
+                        <input matInput placeholder="Username" id="userName" formControlName="userName" required>
+                        <mat-error *ngIf="addUserForm.controls.userName.hasError('required')">
+                            Username required
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field fxFlex appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input matInput placeholder="Email" id="email" formControlName="email">
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxFlex>
+                    <mat-form-field fxFlex appearance="outline">
+                        <mat-label>Phone</mat-label>
+                        <input matInput placeholder="Phone" id="phone" formControlName="phone">
+                    </mat-form-field>
+                </div> 
+            </div>
+        </form>
+    </div>
+    <div fxLayout="row" fxFlex="36px" fxLayoutGap="10px">
+        <button mat-button form="ngForm" class="fx-save-button" (click)="saveUser()">Save</button>
+        <button mat-button form="ngForm" class="fx-cancel-button" (click)="closeModal()">cancel</button>
+    </div>
+</div>

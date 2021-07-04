@@ -1,0 +1,195 @@
+@import './material-custom-theme.scss';
+
+@mixin fx-color($bg: null, $fg: null){
+    @if $bg{
+        background: fx-mat-color($sp-colors, $bg) !important;
+    }
+    @if $fg{
+        color: fx-mat-color($sp-colors, $fg) !important;
+    }
+}
+
+@mixin fx-height($height) {
+    height: $height;
+}
+
+@mixin fx-display($display: block){
+    display: $display;
+}
+
+@mixin fx-position($position: relative){
+    position: $position;
+}
+@mixin fx-box-shadow($shadow) {
+    box-shadow: $shadow
+}
+@mixin fx-margin($margin-top, $margin-right, $margin-bottom, $margin-left){
+    margin: $margin-top $margin-right $margin-bottom $margin-left
+}
+
+@mixin fx-padding($padding-top, $padding-right, $padding-bottom, $padding-left){
+    padding: $padding-top $padding-right $padding-bottom $padding-left
+}
+
+@mixin calc($property, $expression) { 
+    #{$property}: -webkit-calc(#{$expression}); 
+    #{$property}: -moz-calc(#{$expression});
+    #{$property}: calc(#{$expression}); 
+  } 
+
+@mixin fx-font($font){
+    font-size: $font;
+}
+@mixin fx-position($position) {
+    position: $position
+}
+@mixin fx-cursor($cursor) {
+    cursor: $cursor
+}
+@mixin fx-width($width) {
+    width: $width
+}
+@mixin fx-top($top) {
+    top: $top
+}
+@mixin fx-border-radius($border-radius){
+    border-radius: $border-radius;
+}
+@mixin fx-line-height($line-height){
+    line-height: $line-height;
+}
+@mixin fx-text-align($text-align){
+    text-align: $text-align;
+}
+@mixin fx-font-weight($font-weight){
+    font-weight: $font-weight;
+}
+@mixin fx-bg-image($bg-image){
+    background-image: $bg-image;
+}
+@mixin fx-bg-size($bg-size){
+    background-size: $bg-size;
+}
+@mixin fx-vertical-align($vertical-align){
+    vertical-align: $vertical-align;
+}
+@mixin fx-right($right){
+    right: $right;
+}
+@mixin fx-bottom($bottom){
+    bottom: $bottom;
+}
+@mixin fx-left($left){
+    left: $left;
+}
+@mixin fx-min-width($min-width) {
+    min-width: $min-width
+}
+@mixin fx-max-width($max-width) {
+    max-width: $max-width
+}
+
+
+body{
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+th,td,p,span,label,div,a,ul,li,ol{
+    font-weight: normal;
+}
+
+.fx-cursor-pointer{
+    @include fx-cursor(pointer);
+}
+.fx-mat-primary{
+    color : mat-color($primary, 500);
+}
+.fx-mat-accent{
+    color : mat-color($accent, 500);
+}
+.fx-mat-success{
+    @include fx-color(fx-22B573, fx-FFFFFF);
+}
+.fx-mat-warn{
+    color : mat-color($mat-red, 500);
+}
+.fx-text-ellipsis{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.fx-top-toolbar{
+    @include fx-color(fx-f2f2f2,null); 
+    border-bottom: 1px solid lightgray;
+    position: fixed;
+    top: 100px;
+    height: 50px;
+    z-index: 1
+}
+.fx-bottom-toolbar{
+    @include fx-color(fx-f2f2f2,null);
+    border-top: 1px solid lightgray;
+    position: fixed;
+    bottom: 0;
+    height: 50px;
+    z-index: 1 
+}
+.fx-section{ 
+    padding: 20px 20px 60px 20px;
+    height: calc(100vh - 230px);
+    overflow: auto;
+}
+.fx-section-without-footer{ 
+    padding: 0px 20px 0px 20px;
+    height: calc(100vh - 150px);
+    overflow: auto;
+}
+
+/* Styles for material components and will apply allover the application talha*/
+::ng-deep .mat-form-field-outline{ /*from controls background*/
+  background: white;
+}
+::ng-deep .mat-autocomplete-panel .mat-option.mat-selected:not(.mat-active):not(:hover):not(.mat-option-disabled){    
+    /*autocomplete selected option*/
+    color: white;
+    background-color: #4D4D4D !important
+}
+::ng-deep mat-option.mat-selected{ /*autocomplete selected option hover*/
+    color: white;
+}
+.fx-container{ 
+    height: calc(100vh - 100px);
+    @include fx-color(fx-FFFFFF);
+}   
+.fx-contents{
+    overflow: auto;
+} 
+.fx-save-button{
+    @include fx-color(fx-4D4D4D,fx-FFFFFF);
+}   
+.fx-save-cont-button{
+    @include fx-color(fx-22B573,fx-FFFFFF); 
+}
+.fx-cancel-button{
+   @include fx-color(fx-F44336,fx-FFFFFF);
+}
+
+.fx-cancel-disable{
+    @include fx-color(fx-F1BAB6,fx-FFFFFF);
+}
+
+.background-highlight{
+    @include fx-color(fx-dadada,null); 
+} 
+
+::ng-deep .background-highlight{
+    @include fx-color(fx-dadada,null);
+}
+
+.font-bold{
+    font-weight: bold !important;
+}
+
+::ng-deep mat-icon{
+cursor: pointer
+}

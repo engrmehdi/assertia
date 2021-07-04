@@ -1,0 +1,22 @@
+<mat-toolbar fxLayout="row" class="fx-app-toolbar" > 
+    <span> 
+        <button mat-icon-button (click)="toggleSideNav()"><mat-icon>menu</mat-icon></button>
+        <button mat-icon-button> 
+            <img src="./assets/icons/logo1.png" class="fx-cursor-pointer" style="width: 100px;height: 40px;" (click)="toggleSideNav()"> 
+        </button> 
+    </span> 
+    <div fxFlex fxLayoutAlign="end center"  fxHide.xs>  
+        <app-notifications></app-notifications>
+        <app-search></app-search>
+        <app-help></app-help> 
+        <app-user-menu fxLayoutAlign="center center" class="fx-usermenu"></app-user-menu> 
+    </div> 
+    <div fxFlex fxHide fxShow.xs fxLayout="column" fxLayoutAlign="space-evenly end"> 
+        <div  fxLayout="row"> 
+            <app-notifications></app-notifications>
+            <app-search></app-search>
+            <app-help></app-help> 
+            <app-user-menu fxLayoutAlign="center center" class="fx-usermenu"></app-user-menu> 
+        </div> 
+    </div> 
+</mat-toolbar>
